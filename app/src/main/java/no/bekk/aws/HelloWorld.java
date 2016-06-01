@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 @Controller
 @EnableAutoConfiguration
 public class HelloWorld {
+    
+    
 
     @RequestMapping("/")
     @ResponseBody
