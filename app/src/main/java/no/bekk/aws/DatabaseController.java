@@ -2,11 +2,15 @@ package no.bekk.aws;
 
 import no.bekk.aws.domain.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import static java.util.stream.Collectors.joining;
@@ -41,19 +45,36 @@ public class DatabaseController {
     @RequestMapping(value = "/todo", method = RequestMethod.POST)
     @ResponseBody
     public void addTodo(@RequestBody Todo todo) {
-        jdbcTemplate.execute("INSERT INTO todo (text) VALUES ('" + todo.text + "')");
+        String query = "INSERT INTO todo (text) VALUES (?)";
+        jdbcTemplate.execute(query, (PreparedStatementCallback<Boolean>) ps -> {
+            ps.setString(1, todo.text);
+            return ps.execute();
+        });
     }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public void updateTodo(@PathVariable("id") int id, @RequestBody Todo todo) {
+        String query = "UPDATE todo SET text=?, done=? WHERE id=?";
+
+        jdbcTemplate.execute(query, (PreparedStatementCallback<Object>) ps -> {
+            ps.setString(1, todo.text);
+            ps.setBoolean(2, todo.isDone);
+            ps.setInt(3, todo.id);
+            return ps.execute();
+        });
+
         jdbcTemplate.execute("UPDATE todo SET text='" + todo.text + "', done=" + todo.isDone + " WHERE id=" + id);
     }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void deleteTodo(@PathVariable("id") int id) {
-        jdbcTemplate.execute("DELETE FROM todo WHERE id=" + id);
+        String query = "DELETE FROM todo WHERE id=?";
+        jdbcTemplate.execute(query, (PreparedStatementCallback<Boolean>) ps -> {
+            ps.setInt(1, id);
+            return ps.execute();
+        });
     }
 
 }
