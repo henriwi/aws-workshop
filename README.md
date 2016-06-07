@@ -26,7 +26,7 @@ Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans
 
 ### Oppgave 3 – Deploy eksempelapplikasjonen manuelt
 
-- Last ned applikasjonen fra GitHub: 
+- Last ned vår ferdige eksempelapplikasjon fra [GitHub](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop-1.0-SNAPSHOT.jar?raw=true)
 - Deploy denne til miljøet ditt på Beanstalk
 - Gå på URL-en til applikasjonen og sjekk at den kjører
 
