@@ -2,6 +2,8 @@ package no.bekk.aws;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +17,11 @@ import java.net.URLConnection;
 import java.util.stream.Collectors;
 
 @Controller
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+@ComponentScan
 public class HelloWorld {
-    
-    
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     @ResponseBody
     String home() throws Exception {
         URLConnection connection = new URL("http://169.254.169.254/latest/meta-data/hostname").openConnection();

@@ -12,6 +12,7 @@ public class Config {
     @Bean
     public DataSource dataSource() {
         if (System.getenv("RDS_DB_NAME") != null) {
+            System.out.println("Creating datasource");
             String dbName = System.getenv("RDS_DB_NAME");
             String userName = System.getenv("RDS_USERNAME");
             String password = System.getenv("RDS_PASSWORD");
@@ -21,9 +22,10 @@ public class Config {
             HikariDataSource dataSource = new HikariDataSource();
             dataSource.setJdbcUrl("jdbc:mysql://" + hostname + ":" + port + "/" + dbName);
             dataSource.setUsername(userName);
-            dataSource.setPassword(password);            
-            
+            dataSource.setPassword(password);
+
             return dataSource;
+
         }
         else {
             return null;
