@@ -12,6 +12,7 @@ import java.util.List;
 import static java.util.stream.Collectors.joining;
 
 @Controller
+@RequestMapping("/api/")
 public class DatabaseController {
 
     private JdbcTemplate jdbcTemplate;

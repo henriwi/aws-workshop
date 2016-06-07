@@ -1,0 +1,27 @@
+body {
+    background: #ffffff;
+    color: #4d4d4d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 30px;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todoInput {
+    padding: 16px 16px 16px 2px;
+    border: none;
+    border-bottom: 1px solid #4d4d4d;
+    background: rgba(0, 0, 0, 0.003);
+    color: #4d4d4d;
+    font-size: 2rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}

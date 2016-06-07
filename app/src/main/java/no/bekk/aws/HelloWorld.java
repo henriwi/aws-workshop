@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @ComponentScan
 public class HelloWorld {
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     @ResponseBody
     String home() throws Exception {
         URLConnection connection = new URL("http://169.254.169.254/latest/meta-data/hostname").openConnection();
