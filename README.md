@@ -79,6 +79,6 @@ S3 er Amazons tjeneste for å hoste filer. I denne oppgaven skal dere laste opp 
 ## Applikasjon
 Applikasjonen har følgende endepunkter:
 
-- ```/``` : Viser en enkel frontend for listing og opprettelse av TODOs
-- ```/ping``` : Viser hostname
+- ```/``` : Viser hostname
+- ```/todo.html``` : Viser en enkel frontend for listing og opprettelse av TODOs
 - ```/api/todo``` : REST API-et
