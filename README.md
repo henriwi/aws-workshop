@@ -20,9 +20,9 @@ Slides på http://tiny.cc/aws-kurs-slides.
    - Trykk på _Configure more options_ (grå knapp nederst)
    - Velg _Highly available_ under _Configuration presets_ øverst på siden
    - Klikk _Create environment_
-   - Det kommer opp et sort konsollvindu med tittelen _Creating \<appnavn\>-env_. 
-   
-Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans og en lastbalanserer. Vi forklarer straks på tavla hva dette betyr. 
+   - Det kommer opp et sort konsollvindu med tittelen _Creating \<appnavn\>-env_.
+
+Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans og en lastbalanserer. Vi forklarer straks på tavla hva dette betyr.
 
 ## Oppgave 3 – Deploy eksempelapplikasjonen manuelt
 
@@ -34,12 +34,14 @@ Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans
 ## Oppgave 4 – Sett opp Relational Database Service (RDS)
 
 - Dette gjør du under _Configuration_ -> _Data tier_
-- Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`), det spiller ingen rolle hva
-- La resten stå som default
+- Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`). Passordet blir automatisk håndtert i Beanstalk, du kommer derfor ikke til å bruke det senere.
+- La resten stå som default og klikk apply
 - Last ned ny versjon av vår eksempelapplikasjon med databasekonfigurasjon: [aws-workshop.jar](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop.jar?raw=true)
 - Deploy denne til miljøet ditt på Beanstalk
 
-Gå på FYLL UT URL HER og se at data hentes og lagres.
+På tide med en kaffepause! Det tar ca 10 minutter før RDS-databasen er opprettet.
+
+Når databasen er opprettet går du inn på applikasjonen din og prøver å lage noen todo-oppføringer. Refresh siden, og se at oppføringene har blitt lagret i databasen.
 
 
 ## Oppgave 5 – Oppsett av auto scaling
@@ -53,12 +55,12 @@ Velg en scaling cooldown på 60 sekunder.
 ## Oppgave 6 – Test av auto scaling
 
 ### Skalere opp
-Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av 1 minutt. Vent følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_. 
+Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av 1 minutt. Vent følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_.
 
 ### Skalere ned
 På grunn av hvordan Amazons overvåkning fungerer, vil ikke applikasjonen nedskalere av seg selv om den har null trafikk (spør oss om detaljer!).
 
-Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et minutt) for å trigge nedskalering. 
+Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et minutt) for å trigge nedskalering.
 
 ## Oppgave 7 – Sett opp alarmer for opp- og nedskalering
 
@@ -66,10 +68,17 @@ Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser
 
 Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_.
 
+## Bonusoppgave
+
+S3 er Amazons tjeneste for å hoste filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
+
+- Opprett en S3-bucket i region Frankfurt med navnet `aws-kurs-gruppe{gruppenummer}`, f.eks. `aws-kurs-gruppe02`.
+- Last opp et bilde. Bildet må ha filnavnet `bilde{gruppenummer}.jpg`
+- Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises
+
 ## Applikasjon
 Applikasjonen har følgende endepunkter:
 
 - ```/``` : Viser en enkel frontend for listing og opprettelse av TODOs
 - ```/ping``` : Viser hostname
 - ```/api/todo``` : REST API-et
-
