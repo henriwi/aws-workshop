@@ -63,3 +63,11 @@ Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et 
 Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen.
 
 Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_.
+
+## Applikasjon
+Applikasjonen har følgende endepunkter:
+
+- ```/``` : Viser en enkel frontend for listing og opprettelse av TODOs
+- ```/ping``` : Viser hostname
+- ```/api/todo``` : REST API-et
+
