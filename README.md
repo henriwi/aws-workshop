@@ -26,7 +26,7 @@ Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans
 
 ## Oppgave 3 – Deploy eksempelapplikasjonen manuelt
 
-- Last ned vår ferdige eksempelapplikasjon fra [GitHub](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop-1.0-SNAPSHOT.jar?raw=true)
+- Last ned vår ferdige eksempelapplikasjon her [aws-workshop-ingen-db.jar](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop-ingen-db.jar?raw=true)
 - Deploy denne til miljøet ditt på Beanstalk
 - Gå på URL-en til applikasjonen og sjekk at den kjører
 
@@ -36,6 +36,8 @@ Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans
 - Dette gjør du under _Configuration_ -> _Data tier_
 - Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`), det spiller ingen rolle hva
 - La resten stå som default
+- Last ned ny versjon av vår eksempelapplikasjon med databasekonfigurasjon: [aws-workshop.jar](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop.jar?raw=true)
+- Deploy denne til miljøet ditt på Beanstalk
 
 Gå på FYLL UT URL HER og se at data hentes og lagres.
 
