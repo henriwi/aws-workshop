@@ -8,7 +8,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-public class Config {
+public class DatabaseConfig {
 
     @Bean
     public DataSource dataSource() {
