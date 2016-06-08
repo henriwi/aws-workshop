@@ -17,12 +17,12 @@ import static java.util.stream.Collectors.joining;
 
 @Controller
 @RequestMapping("/api/")
-public class DatabaseController {
+public class TodoController {
 
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public DatabaseController(DataSource dataSource) {
+    public TodoController(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
 
         jdbcTemplate.update("CREATE TABLE IF NOT EXISTS todo " +
