@@ -1,27 +1,21 @@
 package no.bekk.aws;
 
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.*;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.stream.Collectors;
 
 @Controller
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@ComponentScan
-public class HelloWorld {
+public class PingController {
 
-    @RequestMapping("/hello")
+    @RequestMapping("/ping")
     @ResponseBody
     String home() throws Exception {
         URLConnection connection = new URL("http://169.254.169.254/latest/meta-data/hostname").openConnection();
@@ -32,14 +26,9 @@ public class HelloWorld {
         }
     }
 
-    public static void main(String[] args) {
-		SpringApplication.run(HelloWorld.class, args);
-	}
-
     public static String read(InputStream input) throws IOException {
         try (BufferedReader buffer = new BufferedReader(new InputStreamReader(input))) {
             return buffer.lines().collect(Collectors.joining("\n"));
         }
     }
-    
 }

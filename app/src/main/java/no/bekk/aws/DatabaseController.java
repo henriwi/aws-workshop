@@ -63,8 +63,6 @@ public class DatabaseController {
             ps.setInt(3, todo.id);
             return ps.execute();
         });
-
-        jdbcTemplate.execute("UPDATE todo SET text='" + todo.text + "', done=" + todo.isDone + " WHERE id=" + id);
     }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)

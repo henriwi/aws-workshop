@@ -3,6 +3,7 @@ package no.bekk.aws;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
 
@@ -26,8 +27,7 @@ public class Config {
 
             return dataSource;
 
-        }
-        else {
+        } else {
             return null;
         }
     }
