@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Controller
 public class PingController {
 
-    @RequestMapping("/ping")
+    @RequestMapping("/")
     @ResponseBody
     String home() throws Exception {
         URLConnection connection = new URL("http://169.254.169.254/latest/meta-data/hostname").openConnection();
