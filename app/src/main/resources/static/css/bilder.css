@@ -1,0 +1,26 @@
+body {
+    padding-top: 2em;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 2em;
+    width: 20em;
+}
+
+p {
+    font-size: 2em;
+    font-family: sans-serif;
+    margin-bottom: 1em;
+}
+
+img {
+    margin-bottom: 1em;
+    max-width: 20em;
+}
+
+.gruppe {
+    display: inline-block;
+    margin: 1em;
+}
