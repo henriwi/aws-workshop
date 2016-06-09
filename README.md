@@ -68,13 +68,37 @@ Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser
 
 Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_.
 
-## Bonusoppgave
+## Oppgave 8
 
 S3 er Amazons tjeneste for å hoste filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
 
 - Opprett en S3-bucket i region Frankfurt med navnet `aws-kurs-gruppe{gruppenummer}`, f.eks. `aws-kurs-gruppe02`.
 - Last opp et bilde. Bildet må ha filnavnet `bilde{gruppenummer}.jpg`
 - Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises
+
+## Oppgave 9
+Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen som vi laget i Oppgave 8
+
+- Velg brukernavnet ditt øverst til høyre i Amazon Console og velg Security Credentials
+- Velg Users og finn og velg brukeren din i liste
+- Velg User Actions -> Manage Access Key
+- Velg Create Access Key og kopier verdiene som vises og lagre disse så du har de til senere
+- Opprett filen ```.aws/credentials``` med følgende innhold
+```
+[default]
+aws_access_key_id = <fyll inn>
+aws_secret_access_key = <fyll inn>
+```
+- Åpne applikasjonen ved å åpne IntelliJ -> Open -> Velg pom.xml
+- Åpne klassen ```S3.java```. 
+
+Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å gjøre følgende:
+
+1. Last opp en fil til S3-bucket og verifiser at den har blitt lastet opp ved å se i Amazon Console
+2. Hent ned alle filer i din bucket og skriv disse ut
+3. Slett en fil fra bucketen
+
+Relevante ressurser: TODO
 
 ## Applikasjon
 Applikasjonen har følgende endepunkter:
