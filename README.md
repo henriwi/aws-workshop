@@ -70,39 +70,47 @@ Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskale
 
 ## Oppgave 8
 
-S3 er Amazons tjeneste for å hoste filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
+S3 er Amazons tjeneste for å hoste statiske filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
 
 - Opprett en S3-bucket i region Frankfurt med navnet `aws-kurs-gruppe{gruppenummer}`, f.eks. `aws-kurs-gruppe02`.
-- Last opp et bilde. Bildet må ha filnavnet `bilde{gruppenummer}.jpg`
-- Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises
+- Last opp et bilde. Bildet må ha filnavnet `bilde.jpg`.
+- Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises.
 
 ## Oppgave 9
-Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen som vi laget i Oppgave 8
+Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen vi laget i Oppgave 8. I denne oppgaven kjører vi Java-koden lokalt på egen maskin, og implementerer kode som kommuniserer med Amazons API-er. 
 
-- Velg brukernavnet ditt øverst til høyre i Amazon Console og velg Security Credentials
-- Velg Users og finn og velg brukeren din i liste
+### Del 1: Sett opp tilgangsnøkler for AWS
+Først må vi sette opp tilgangsnøkler for AWS på maskinen vår, slik at vi får tilgang til Amazons API-er når vi kjører koden lokalt.
+
+- Velg brukernavnet ditt øverst til høyre i AWS Console og velg Security Credentials
+- Velg Users og finn og velg brukeren din i listen
 - Velg User Actions -> Manage Access Key
-- Velg Create Access Key og kopier verdiene som vises og lagre disse så du har de til senere
-- Opprett filen ```.aws/credentials``` med følgende innhold
+- Velg Create Access Key, kopier verdiene som vises og lagre disse så du har dem til senere
+- Opprett filen `~/.aws/credentials` med følgende innhold
 ```
 [default]
 aws_access_key_id = <fyll inn>
 aws_secret_access_key = <fyll inn>
 ```
+
+### Del 2: Implementere løsning
 - Åpne applikasjonen ved å åpne IntelliJ -> Open -> Velg pom.xml
-- Åpne klassen ```S3.java```. 
+- Åpne klassen `S3.java`.
 
-Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å gjøre følgende:
+Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å skrive Java-kode for å gjøre følgende:
 
-1. Last opp en fil til S3-bucket og verifiser at den har blitt lastet opp ved å se i Amazon Console
-2. Hent ned alle filer i din bucket og skriv disse ut
+1. Last opp en fil til en S3-bucket og verifiser at den har blitt lastet opp ved å se i Amazon Console
+2. Hent ned alle filer i din bucket og skriv ut filnavnene
 3. Slett en fil fra bucketen
 
-Relevante ressurser: TODO
+Relevante ressurser:
+
+- [Eksempelkode på GitHub](https://github.com/awslabs/aws-java-sample/blob/master/src/main/java/com/amazonaws/samples/S3Sample.java)
 
 ## Applikasjon
 Applikasjonen har følgende endepunkter:
 
 - ```/``` : Viser hostname
 - ```/todo.html``` : Viser en enkel frontend for listing og opprettelse av TODOs
+- ```/bilder.html``` : Enkel HTML-side for bruk i oppgave 8
 - ```/api/todo``` : REST API-et
