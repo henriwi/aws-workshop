@@ -10,7 +10,9 @@ Slides på http://tiny.cc/aws-kurs-slides.
 - Finn brukernavnet ditt på Confluence (lenke på slides)
 - Bytt _region_ i AWS til den som står oppført ved brukeren din på Confluece
 
-## Oppgave 2 – Sett opp en applikasjon på Elastic Beanstalk
+## Oppgave 2 – Sett opp en webserver på Amazons tjeneste _Elastic Beanstalk_
+
+Vi starter med å opprette en _application_ på Elastic Beanstalk, med tilhørende _environment_ for å kjøre Java-applikasjoner.
 
 - Velg _Elastic Beanstalk_ under _Services_ i toppmenyen
 - Klikk _Create new application_, gi applikasjonen din et navn og klikk _Create_.
@@ -22,26 +24,37 @@ Slides på http://tiny.cc/aws-kurs-slides.
    - Klikk _Create environment_
    - Det kommer opp et sort konsollvindu med tittelen _Creating \<appnavn\>-env_.
 
-Nå opprettes miljøet ditt for deg. Dette består blant annet av en EC2-instans og en lastbalanserer. Vi forklarer straks på tavla hva dette betyr.
+Nå opprettes et miljø for deg. Miljøet består blant annet av en webserver som er ferdig konfigurert for å kjøre Java-webapplikasjoner. 
+
+#### _Ressurser_:
+- [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.CreateApp)
 
 ## Oppgave 3 – Deploy eksempelapplikasjonen manuelt
 
-- Last ned vår ferdige eksempelapplikasjon her [aws-workshop-ingen-db.jar](https://github.com/henriwi/aws-workshop/raw/ingen-db/app/dist/aws-workshop-ingen-db.jar?raw=true)
+Webserveren er nå klar, men foreløpig går den på tomgang uten noen kjørende applikasjon. I denne oppgaven skal vi deploye en enkel Java-applikasjon til serveren.
+
+- Last ned vår ferdige eksempelapplikasjon her: [aws-workshop-ingen-db.jar](https://github.com/henriwi/aws-workshop/raw/ingen-db/app/dist/aws-workshop-ingen-db.jar?raw=true)
 - Deploy denne til miljøet ditt på Beanstalk
-- Gå på URL-en til applikasjonen og sjekk at den kjører
+- Gå på URL-en til applikasjonen og sjekk at applikasjonen kjører
+
+#### Ressurser
+- [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.DeployApp)
 
 
 ## Oppgave 4 – Sett opp Relational Database Service (RDS)
 
-- Dette gjør du under _Configuration_ -> _Data tier_
+I denne oppgaven skal vi deploye en ny versjon av applikasjonen. Denne har funksjonalitet for å opprette todo-items i en database, og for at den skal fungere må vi legge til en databaseserver i miljøet vårt. Til dette skal vi bruke Amazons Relational Database Service.
+
+- Gå til _Configuration_ -> _Data tier_ for å sette opp RDS.
 - Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`). Passordet blir automatisk håndtert i Beanstalk, du kommer derfor ikke til å bruke det senere.
 - La resten stå som default og klikk apply
+- På tide med en kaffepause! Det tar ca 10 minutter før RDS-databasen er opprettet.
 - Last ned ny versjon av vår eksempelapplikasjon med databasekonfigurasjon: [aws-workshop.jar](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop.jar?raw=true)
 - Deploy denne til miljøet ditt på Beanstalk
 
-På tide med en kaffepause! Det tar ca 10 minutter før RDS-databasen er opprettet.
+Når databasen er opprettet går du inn på `{applikasjonsurl}/todo.html` og prøver å lage noen todo-oppføringer. Refresh siden, og se at oppføringene har blitt lagret i databasen.
 
-Når databasen er opprettet går du inn på applikasjonen din og prøver å lage noen todo-oppføringer. Refresh siden, og se at oppføringene har blitt lagret i databasen.
+#### Ressurser
 
 
 ## Oppgave 5 – Oppsett av auto scaling
@@ -51,6 +64,8 @@ Konfigurer opp autoskalering for applikasjonen din. Dette gjør du under _Config
 Skaleringen skal settes opp slik at det legges til én instans om antall requester i løpet av 1 minutter overstiger 10. Du skal nedskalere med én instans om antall requester i løpet av et minutt er under 5.
 
 Velg en scaling cooldown på 60 sekunder.
+
+#### Ressurser
 
 ## Oppgave 6 – Test av auto scaling
 
@@ -68,6 +83,8 @@ Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser
 
 Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_.
 
+#### Ressurser
+
 ## Oppgave 8
 
 S3 er Amazons tjeneste for å hoste statiske filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
@@ -75,6 +92,9 @@ S3 er Amazons tjeneste for å hoste statiske filer. I denne oppgaven skal dere l
 - Opprett en S3-bucket i region Frankfurt med navnet `aws-kurs-gruppe{gruppenummer}`, f.eks. `aws-kurs-gruppe02`.
 - Last opp et bilde. Bildet må ha filnavnet `bilde.jpg`.
 - Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises.
+
+#### Ressurser
+
 
 ## Oppgave 9
 Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen vi laget i Oppgave 8. I denne oppgaven kjører vi Java-koden lokalt på egen maskin, og implementerer kode som kommuniserer med Amazons API-er. 
