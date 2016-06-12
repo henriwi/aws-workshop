@@ -127,6 +127,15 @@ Relevante ressurser:
 
 - [Eksempelkode på GitHub](https://github.com/awslabs/aws-java-sample/blob/master/src/main/java/com/amazonaws/samples/S3Sample.java)
 
+## Oppgave 10: Slett servere, miljøer og applikasjoner
+
+Slett alle servere, miljøer og applikasjoner i AWS før du går for dagen.
+
+#### Resurser
+
+- [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.Cleanup)
+
+
 ## Applikasjon
 Applikasjonen har følgende endepunkter:
 
