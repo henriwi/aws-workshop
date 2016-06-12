@@ -59,18 +59,21 @@ Når databasen er opprettet går du inn på `{applikasjonsurl}/todo.html` og pr�
 
 ## Oppgave 5 – Oppsett av auto scaling
 
-Konfigurer opp autoskalering for applikasjonen din. Dette gjør du under _Configuration_ -> _Auto scaling_.
+Amazon Elastic Beanstalk har funksjonalitet for å _skalere_ applikasjonen din automatisk, dvs. legge til eller fjerne servere basert på trafikk eller andre parametre. Dermed kan applikasjonen håndtere store variasjoner i trafikkmengde, uten at du trenger å gjøre noen manuelle endringer i serveroppsettet.
 
-Skaleringen skal settes opp slik at det legges til én instans om antall requester i løpet av 1 minutter overstiger 10. Du skal nedskalere med én instans om antall requester i løpet av et minutt er under 5.
+Du skal nå konfigure opp autoskalering for applikasjonen din. Dette gjør du under _Configuration_ -> _Auto scaling_.
+
+Skaleringen skal settes opp slik at det legges til én instans om antall requester i løpet av ett minutt overstiger 10. Du skal nedskalere med én instans om antall requester i løpet av ett minutt er under 5.
 
 Velg en scaling cooldown på 60 sekunder.
 
 #### Ressurser
 
+
 ## Oppgave 6 – Test av auto scaling
 
 ### Skalere opp
-Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av 1 minutt. Vent følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_.
+Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av ett minutt. Vent følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_.
 
 ### Skalere ned
 På grunn av hvordan Amazons overvåkning fungerer, vil ikke applikasjonen nedskalere av seg selv om den har null trafikk (spør oss om detaljer!).
@@ -79,9 +82,9 @@ Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et 
 
 ## Oppgave 7 – Sett opp alarmer for opp- og nedskalering
 
-Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen.
+Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen. 
 
-Sett opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_.
+I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_. Gjør samme test på opp- og nedskalering som i forrige oppgave, og verifiser at alarmene går og at du mottar e-postvarsel. 
 
 #### Ressurser
 
