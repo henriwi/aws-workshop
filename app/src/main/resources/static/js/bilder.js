@@ -5,7 +5,7 @@ function padLeft(nr, n){
 var el = document.getElementById("grupper");
 var str = "";
 
-for(var i = 1; i <= 16; i++) {
+for(var i = 1; i <= 18; i++) {
     var nr = padLeft(i, 2);
 
     str = "<div class='gruppe'>";
