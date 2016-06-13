@@ -15,7 +15,7 @@ Slides på http://tiny.cc/aws-kurs-slides.
 Vi starter med å opprette en _application_ på Elastic Beanstalk, med tilhørende _environment_ for å kjøre Java-applikasjoner.
 
 - Velg _Elastic Beanstalk_ under _Services_ i toppmenyen
-- Klikk _Create new application_, gi applikasjonen din et navn og klikk _Create_.
+- Klikk _Create new application_, gi applikasjonen din et navn (bruke gjerne gruppenavnet som en del av navnet) og klikk _Create_.
 - Lag et nytt _environment_ ved å klikke _Create one now_ i den grå boksen midt på siden.
    - Velg _Web server environment_
    - Velg _Java_ under _Platform_
@@ -96,7 +96,9 @@ I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelver
 
 ## Oppgave 8
 
-S3 er Amazons tjeneste for å hoste statiske filer. I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
+S3 er Amazons tjeneste for å hoste statiske filer. S3 brukes også internt av flere av Amazon sine tjenester, blant annet Beanstalk, og dere har allerede brukt S3 når dere har lastet opp eksempelapplikasjonen til Beanstalk.
+
+I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applikasjonen.
 
 - Opprett en S3-bucket i region Frankfurt med navnet `aws-kurs-gruppe{gruppenummer}`, f.eks. `aws-kurs-gruppe02`.
 - Last opp et bilde. Bildet må ha filnavnet `bilde.jpg`.
@@ -130,12 +132,14 @@ aws_secret_access_key = <fyll inn>
 Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å skrive Java-kode for å gjøre følgende:
 
 1. Last opp en fil til en S3-bucket og verifiser at den har blitt lastet opp ved å se i Amazon Console
-2. Hent ned alle filer i din bucket og skriv ut filnavnene
-3. Slett en fil fra bucketen
+2. Hent filen ned igjen og skriv ut innholdet
+3. Hent ned alle filer i din bucket og skriv ut filnavnene
+4. Slett en fil fra bucketen
 
 #### Ressurser:
 
-- [Eksempelkode på GitHub](https://github.com/awslabs/aws-java-sample/blob/master/src/main/java/com/amazonaws/samples/S3Sample.java)
+- [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/)
+- [Eksempelkode på GitHub](https://github.com/aws/aws-sdk-java/tree/master/src/samples/AmazonS3)
 
 ## Oppgave 10: Slett servere, miljøer og applikasjoner
 
@@ -147,9 +151,12 @@ Slett alle servere, miljøer og applikasjoner i AWS før du går for dagen.
 
 
 ## Applikasjon
-Applikasjonen har følgende endepunkter:
+Eksempel-applikasjonen som dere bruker har følgende endepunkter:
 
 - ```/``` : Viser hostname
 - ```/todo.html``` : Viser en enkel frontend for listing og opprettelse av TODOs
 - ```/bilder.html``` : Enkel HTML-side for bruk i oppgave 8
 - ```/api/todo``` : REST API-et
+
+## Tilbakemeldinger
+Tilbakemeldingsskjema på http://tiny.cc/j256by
