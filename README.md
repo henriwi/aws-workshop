@@ -26,7 +26,7 @@ Vi starter med å opprette en _application_ på Elastic Beanstalk, med tilhøren
 
 Nå opprettes et miljø for deg. Miljøet består blant annet av en webserver som er ferdig konfigurert for å kjøre Java-webapplikasjoner. 
 
-#### _Ressurser_:
+#### Ressurser:
 - [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.CreateApp)
 
 ## Oppgave 3 – Deploy eksempelapplikasjonen manuelt
@@ -37,7 +37,7 @@ Webserveren er nå klar, men foreløpig går den på tomgang uten noen kjørende
 - Deploy denne til miljøet ditt på Beanstalk
 - Gå på URL-en til applikasjonen og sjekk at applikasjonen kjører
 
-#### Ressurser
+#### Ressurser:
 - [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.DeployApp)
 
 
@@ -54,12 +54,13 @@ I denne oppgaven skal vi deploye en ny versjon av applikasjonen. Denne har funks
 
 Når databasen er opprettet går du inn på `{applikasjonsurl}/todo.html` og prøver å lage noen todo-oppføringer. Refresh siden, og se at oppføringene har blitt lagret i databasen.
 
-#### Ressurser
+#### Ressurser:
+- [Amazons User Guide for RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 
 
 ## Oppgave 5 – Oppsett av auto scaling
 
-Amazon Elastic Beanstalk har funksjonalitet for å _skalere_ applikasjonen din automatisk, dvs. legge til eller fjerne servere basert på trafikk eller andre parametre. Dermed kan applikasjonen håndtere store variasjoner i trafikkmengde, uten at du trenger å gjøre noen manuelle endringer i serveroppsettet.
+Amazon Elastic Beanstalk har funksjonalitet for å _skalere_ applikasjonen din automatisk, dvs. legge til eller fjerne servere basert på trafikk eller andre parametre. Dermed kan applikasjonen håndtere store variasjoner i trafikkmengde uten at du trenger å gjøre noen manuelle endringer i serveroppsettet.
 
 Du skal nå konfigure opp autoskalering for applikasjonen din. Dette gjør du under _Configuration_ -> _Auto scaling_.
 
@@ -67,7 +68,8 @@ Skaleringen skal settes opp slik at det legges til én instans om antall request
 
 Velg en scaling cooldown på 60 sekunder.
 
-#### Ressurser
+#### Ressurser:
+- [Amazons Developer Guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.as.html)
 
 
 ## Oppgave 6 – Test av auto scaling
@@ -86,7 +88,9 @@ Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser
 
 I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_. Gjør samme test på opp- og nedskalering som i forrige oppgave, og verifiser at alarmene går og at du mottar e-postvarsel. 
 
-#### Ressurser
+#### Ressurser:
+- [Amazons dokumentasjon om monitorering på Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-health.html)
+	- [Manage Alarms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.alarms.html)
 
 ## Oppgave 8
 
@@ -96,7 +100,8 @@ S3 er Amazons tjeneste for å hoste statiske filer. I denne oppgaven skal dere l
 - Last opp et bilde. Bildet må ha filnavnet `bilde.jpg`.
 - Gå til `{applikasjonsurl}/bilder.html` og se om bildet ditt vises.
 
-#### Ressurser
+#### Ressurser:
+- [http://aws.amazon.com/s3/](http://aws.amazon.com/s3/)
 
 
 ## Oppgave 9
@@ -126,7 +131,7 @@ Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å sk
 2. Hent ned alle filer i din bucket og skriv ut filnavnene
 3. Slett en fil fra bucketen
 
-Relevante ressurser:
+#### Ressurser:
 
 - [Eksempelkode på GitHub](https://github.com/awslabs/aws-java-sample/blob/master/src/main/java/com/amazonaws/samples/S3Sample.java)
 
