@@ -69,16 +69,18 @@ Skaleringen skal settes opp slik at det legges til én instans om antall request
 Velg en scaling cooldown på 60 sekunder.
 
 #### Ressurser:
-- [Amazons Developer Guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.as.html)
+- [Amazons Developer Guide for Elastic Beanstalk](http://docs.aws.amazon.com/- elasticbeanstalk/latest/dg/using-features.managing.as.html)
+- [Load balancing (Wikipedia)](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+- [Auto scaling (Wikipedia)](https://en.wikipedia.org/wiki/Autoscaling)
 
 
 ## Oppgave 6 – Test av auto scaling
 
 ### Skalere opp
-Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av ett minutt. Vent følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_.
+Åpne applikasjonen din nok ganger til at du overstiger 10 requester i løpet av ett minutt. Følg med under _"Events"_ og vent på beskjed om at en instans er lagt til. Dette kan du også se under _"Health"_.
 
 ### Skalere ned
-På grunn av hvordan Amazons overvåkning fungerer, vil ikke applikasjonen nedskalere av seg selv om den har null trafikk (spør oss om detaljer!).
+På grunn av hvordan Amazons overvåkning fungerer, vil ikke applikasjonen nedskalere av seg selv om den har null trafikk (spør oss om detaljer).
 
 Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et minutt) for å trigge nedskalering.
 
