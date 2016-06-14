@@ -72,6 +72,7 @@ Velg en scaling cooldown på 60 sekunder.
 - [Amazons Developer Guide for Elastic Beanstalk](http://docs.aws.amazon.com/- elasticbeanstalk/latest/dg/using-features.managing.as.html)
 - [Load balancing (Wikipedia)](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - [Auto scaling (Wikipedia)](https://en.wikipedia.org/wiki/Autoscaling)
+- [Forklaring av skaleringsparametre](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-cloudwatch-metrics.html)
 
 
 ## Oppgave 6 – Test av auto scaling
