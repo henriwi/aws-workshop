@@ -148,17 +148,28 @@ Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å sk
 
 ## Oppgave 10: Terraform
 
-Terraform er et verktøy som lar deg skrive kode for å definere oppsett av infrastruktur hos ulike skyleverandører. Terraform har støtte for AWS. I denne oppgaven skal dere sette opp en EC2-instans i AWS vha. Terraform. Dere skal konfiguere serveren slik at man kan logge på via SSH. Serveren skal kjøre Apache, og serve en enkel HTML-fil.
+Terraform er et verktøy som lar deg skrive kode for å definere oppsett av infrastruktur hos ulike skyleverandører. I denne oppgaven skal dere sette opp en EC2-instans i AWS vha. Terraform. Dere skal konfiguere serveren slik at man kan logge på via SSH. Serveren skal kjøre Apache, og serve en enkel HTML-fil.
 
 Slides finner dere her: [http://smat.github.io/terraform-workshop/presentation/](http://smat.github.io/terraform-workshop/presentation/)
 
-### Oppsett
+### SSH-nøkler
 
-- Generer et først et SSH-nøkkelpar med `ssh-keygen -f terraform`.
-- Sett opp en security group med åpning på port 80 ([Terraform-dokumentasjon](https://www.terraform.io/docs/providers/aws/r/security_group.html))
-- Sett opp et key pair ([Terraform-dokumentasjon](https://www.terraform.io/docs/providers/aws/r/key_pair.html))
-- Sett opp en EC2-instans ([Terraform-dokumentasjon](https://www.terraform.io/docs/providers/aws/r/instance.html))
-    - Legg til scriptet `startup.sh` i `user_data`, slik at dette blir kjørt når instansen starter. Dette scriptet setter opp Apache. Les sriptet inn ved hjelp av `file()`-kommandoen.
+For å logge på instansen dere skal sette opp, trenger dere et SSH-nøkkelpar. Generer dette lokalt på egen maskin med `ssh-keygen -f terraform`. For å bruke dette nøkkelparet senere skriver dere `ssh -i terraform`.
+
+### Security group
+
+For å åpne opp for HTTP-trafikk på port 80 trenger dere en _security group_. Sett opp en slik ([dokumentasjon](https://www.terraform.io/docs/providers/aws/r/security_group.html)).
+
+### Definere key-pair i AWS
+
+For å kunne logge på med SSH-nøklene dere lagde i stad, må dere definere et keypair i AWS. Se [Terraform-dokumentasjon](https://www.terraform.io/docs/providers/aws/r/key_pair.html)
+
+### Sette opp EC2-instans
+Til slutt setter dere opp instansen. Denne instansen må referere til keypairet dere lagde i forrige punkt.
+
+For å installere og sette opp Apache må dere kjører scriptet `startup.sh` når instansen starter. Det gjør dere ved å lese det inn i `user_data` i Terraform-konfigen. Scriptet leser dere inn inn ved hjelp av `file()`-kommandoen.
+
+[Dokumentasjon](https://www.terraform.io/docs/configuration/interpolation.html#file_path_) for filstier i Terraform.
 
 ## Oppgave 11: Slett servere, miljøer og applikasjoner
 
