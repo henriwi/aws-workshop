@@ -24,12 +24,12 @@ Vi starter med å opprette en _application_ på Elastic Beanstalk, med tilhøren
    - Klikk _Create environment_
    - Det kommer opp et sort konsollvindu med tittelen _Creating \<appnavn\>-env_.
 
-Nå opprettes et miljø for deg. Miljøet består blant annet av en webserver som er ferdig konfigurert for å kjøre Java-webapplikasjoner. 
+Nå opprettes et miljø for deg. Miljøet består blant annet av en webserver som er ferdig konfigurert for å kjøre Java-webapplikasjoner.
 
 #### Ressurser:
 - [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.CreateApp)
 
-## Oppgave 3 – Deploy eksempelapplikasjonen manuelt
+## Oppgave 3 – Deploy eksempelapplikasjonen
 
 Webserveren er nå klar, men foreløpig går den på tomgang uten noen kjørende applikasjon. I denne oppgaven skal vi deploye en enkel Java-applikasjon til serveren.
 
@@ -86,9 +86,9 @@ Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et 
 
 ## Oppgave 7 – Sett opp alarmer for opp- og nedskalering
 
-Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen. 
+Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen.
 
-I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_. Gjør samme test på opp- og nedskalering som i forrige oppgave, og verifiser at alarmene går og at du mottar e-postvarsel. 
+I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_. Gjør samme test på opp- og nedskalering som i forrige oppgave, og verifiser at alarmene går og at du mottar e-postvarsel.
 
 #### Ressurser:
 - [Amazons dokumentasjon om monitorering på Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-health.html)
@@ -109,7 +109,7 @@ I denne oppgaven skal dere laste opp et bilde i S3 og se at dette vises i applik
 
 
 ## Oppgave 9
-Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen vi laget i Oppgave 8. I denne oppgaven kjører vi Java-koden lokalt på egen maskin, og implementerer kode som kommuniserer med Amazons API-er. 
+Amazon tilbyr SDK-er for flere språk mot tjenestene sine. Vi skal nå lage et lite Java-program som laster opp og henter ut filer til S3-bucketen vi laget i Oppgave 8. I denne oppgaven kjører vi Java-koden lokalt på egen maskin, og implementerer kode som kommuniserer med Amazons API-er.
 
 ### Del 1: Sett opp tilgangsnøkler for AWS
 Først må vi sette opp tilgangsnøkler for AWS på maskinen vår, slik at vi får tilgang til Amazons API-er når vi kjører koden lokalt.
@@ -150,7 +150,7 @@ Slett alle servere, miljøer og applikasjoner i AWS før du går for dagen.
 - [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.Cleanup)
 
 ## Bonusoppgave
-Ferdig allerede? Da har vi en bonusoppgave til deg. Du skal nå bruke Amazon Simple Email Service (SES) til å sende en epost til deg selv ved hjelp av Amazon sin Java SDK. 
+Ferdig allerede? Da har vi en bonusoppgave til deg. Du skal nå bruke Amazon Simple Email Service (SES) til å sende en epost til deg selv ved hjelp av Amazon sin Java SDK.
 
 Vi gir deg ikke så mange hint i denne oppgaven, men oppfordrer deg til å grave i Amazon sin dokumentasjon for å finne ut av hvordan du gjør dette. Vi har laget en klasse ```SES``` i prosjektet med det mest grunnleggende oppsettet.
 
