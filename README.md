@@ -146,7 +146,16 @@ Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å sk
 - [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/)
 - [Eksempelkode på GitHub](https://github.com/aws/aws-sdk-java/tree/master/src/samples/AmazonS3)
 
-## Oppgave 10: Slett servere, miljøer og applikasjoner
+## Oppgave 10: Terraform
+
+Terraform er et verktøy som lar deg skrive kode for å definere oppsett av infrastruktur hos ulike skyleverandører. Terraform har støtte for AWS. I denne oppgaven skal dere sette opp en enkel infrastruktur i AWS vha. Terraform.
+
+#### Sett opp følgende
+
+- En EC2-instans (`t1.micro`) med Apache
+- Lastbalanserer (Amazon Elastic Load Balancing) i front
+
+## Oppgave 11: Slett servere, miljøer og applikasjoner
 
 Slett alle servere, miljøer og applikasjoner i AWS før du går for dagen.
 
