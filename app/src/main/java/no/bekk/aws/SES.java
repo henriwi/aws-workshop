@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SES {
 
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
 
         AWSCredentials credentials;
         try {
@@ -23,6 +23,6 @@ public class SES {
         }
 
         AmazonSimpleEmailServiceClient client = new AmazonSimpleEmailServiceClient(credentials);
-
     }
+    */
 }
