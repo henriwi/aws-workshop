@@ -149,6 +149,14 @@ Slett alle servere, miljøer og applikasjoner i AWS før du går for dagen.
 
 - [Amazons "Getting started"-guide for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.Cleanup)
 
+## Bonusoppgave
+Ferdig allerede? Da har vi en bonusoppgave til deg. Du skal nå bruke Amazon Simple Email Service (SES) til å sende en epost til deg selv ved hjelp av Amazon sin Java SDK. 
+
+Vi gir deg ikke så mange hint i denne oppgaven, men oppfordrer deg til å grave i Amazon sin dokumentasjon for å finne ut av hvordan du gjør dette. Vi har laget en klasse ```SES``` i prosjektet med det mest grunnleggende oppsettet.
+
+### Ressurser
+- [What Is Amazon SES?](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html)
+- [Sending Email with Amazon SES](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-email.html)
 
 ## Applikasjon
 Eksempel-applikasjonen som dere bruker har følgende endepunkter:
