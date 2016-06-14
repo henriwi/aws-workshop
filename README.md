@@ -10,7 +10,7 @@ Slides på http://tiny.cc/aws-kurs-slides.
 - Finn brukernavnet ditt på Confluence (lenke på slides)
 - Bytt _region_ i AWS til den som står oppført ved brukeren din på Confluece
 
-## Oppgave 2 – Sett opp en webserver på Amazons tjeneste _Elastic Beanstalk_
+## Oppgave 2 – Sett opp en webserver på Amazons tjeneste Elastic Beanstalk
 
 Vi starter med å opprette en _application_ på Elastic Beanstalk, med tilhørende _environment_ for å kjøre Java-applikasjoner.
 
@@ -46,7 +46,7 @@ Webserveren er nå klar, men foreløpig går den på tomgang uten noen kjørende
 I denne oppgaven skal vi deploye en ny versjon av applikasjonen. Denne har funksjonalitet for å opprette todo-items i en database, og for at den skal fungere må vi legge til en databaseserver i miljøet vårt. Til dette skal vi bruke Amazons Relational Database Service.
 
 - Gå til _Configuration_ -> _Data tier_ for å sette opp RDS.
-- Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`). Passordet blir automatisk håndtert i Beanstalk, du kommer derfor ikke til å bruke det senere.
+- Velg et vilkårlig brukernavn og passord (f.eks. `admin`/`qwerty1234`). Passordet blir automatisk håndtert i Beanstalk, du kommer derfor ikke til å trenge det senere.
 - La resten stå som default og klikk apply
 - På tide med en kaffepause! Det tar ca 10 minutter før RDS-databasen er opprettet.
 - Last ned ny versjon av vår eksempelapplikasjon med databasekonfigurasjon: [aws-workshop.jar](https://github.com/henriwi/aws-workshop/blob/master/app/dist/aws-workshop.jar?raw=true)
@@ -58,7 +58,7 @@ Når databasen er opprettet går du inn på `{applikasjonsurl}/todo.html` og pr�
 - [Amazons User Guide for RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
 
 
-## Oppgave 5 – Oppsett av auto scaling
+## Oppgave 5 – Sett opp auto scaling
 
 Amazon Elastic Beanstalk har funksjonalitet for å _skalere_ applikasjonen din automatisk, dvs. legge til eller fjerne servere basert på trafikk eller andre parametre. Dermed kan applikasjonen håndtere store variasjoner i trafikkmengde uten at du trenger å gjøre noen manuelle endringer i serveroppsettet.
 
@@ -84,11 +84,15 @@ På grunn av hvordan Amazons overvåkning fungerer, vil ikke applikasjonen nedsk
 
 Du må derfor sende noen requests til applikasjonen (men under 5 i løpet av et minutt) for å trigge nedskalering.
 
+Når du har verifisert oppsettet kan du gjerne prøve ut andre auto-scaling-triggere, som bytes inn/ut, CPU-last, etc.
+
 ## Oppgave 7 – Sett opp alarmer for opp- og nedskalering
 
 Man kan sette opp alarmer i Elastic Beanstalk som varsler deg om visse hendelser i applikasjonen.
 
 I denne oppgaven skal du sette opp alarmer som sender deg e-post når terskelverdiene for opp- og nedskalering brytes. Dette gjør du under _Monitoring_. Når alarmene er definert dukker de opp under _Alarms_. Gjør samme test på opp- og nedskalering som i forrige oppgave, og verifiser at alarmene går og at du mottar e-postvarsel.
+
+Prøv gjerne å sette opp alarmer på andre metrikker også.
 
 #### Ressurser:
 - [Amazons dokumentasjon om monitorering på Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-health.html)
@@ -132,8 +136,8 @@ aws_secret_access_key = <fyll inn>
 Klassen inneholder startkode for å integrere mot S3. Oppgaven går ut på å skrive Java-kode for å gjøre følgende:
 
 1. Last opp en fil til en S3-bucket og verifiser at den har blitt lastet opp ved å se i Amazon Console
-2. Hent filen ned igjen og skriv ut innholdet
-3. Hent ned alle filer i din bucket og skriv ut filnavnene
+2. Hent ned alle filer i din bucket og skriv ut filnavnene
+3. Hent filen ned igjen og skriv ut innholdet
 4. Slett en fil fra bucketen
 
 #### Ressurser:
