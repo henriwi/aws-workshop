@@ -152,6 +152,9 @@ Terraform er et verktøy som lar deg skrive kode for å definere oppsett av infr
 
 Slides finner dere her: [http://smat.github.io/terraform-workshop/presentation/](http://smat.github.io/terraform-workshop/presentation/)
 
+### Installere Terraform
+`brew install terraform`
+
 ### SSH-nøkler
 
 For å logge på instansen dere skal sette opp, trenger dere et SSH-nøkkelpar. Generer dette lokalt på egen maskin med `ssh-keygen -f terraform`. For å bruke dette nøkkelparet senere skriver dere `ssh -i terraform`.
